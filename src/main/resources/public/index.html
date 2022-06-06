@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <style>
+
+        table{
+            height: 250px;
+            width: 500px;
+            margin: auto;
+            border-collapse:separate;
+            border:solid black 1px;
+            border-radius:6px;
+            -moz-border-radius:6px;
+            border-spacing: 0;
+            background-color: white;
+            opacity: 0.7;
+
+        }
+
+        body{
+            background-image: url("abstract.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+
+        table td{
+            margin:auto;
+            text-align: center;
+        }
+
+        h1{
+            margin: auto;
+            text-align: center;
+            font-size: 100px;
+            font-family: Verdana;
+            color: white;
+        }
+
+        button{
+            height: 75px;
+            width: 400px;
+            margin: auto;
+            vertical-align: middle;
+        }
+
+        .btn-play{
+            height: 75px;
+            width: 250px;
+            font-size: 30px;
+            text-align: center;
+            color: white;
+
+        }
+
+        p#desc{
+            word-wrap: break-word;
+            margin:auto;
+            width: 1000px;
+            margin:auto;
+            text-align: justify;
+            font-size: 20px;
+            font-family: Verdana;
+            color: white;
+        }
+
+
+        #selectMode{
+            height: 50px;
+            width: 400px;
+            visibility: hidden;
+            margin: auto;
+            left: 55px;
+            font-size: 20px;
+            background-color: white;
+            opacity: 0.7;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<span class="border"><h1>Connect 4</h1></span>
+<p></p>
+<p></p>
+<span class="border border-dark">
+            <table id="gamemenu">
+            <tr>
+                <td>
+                    <a class="btn btn-dark btn-play" href="c4.html" role="button">Play</a>
+                </td>
+            </tr>
+               <tr>
+                   <td>
+                       <div>
+                           <button id="btnGroupDrop1" type="button" class="btn btn-dark btn-play" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Player</button>
+                           <div class="dropdown-menu">
+                            <div class="dropdown-item" onclick="selectPlayer(0)">Player 1</div>
+                               <div class="dropdown-item" onclick="selectPlayer(1)" >Player 2</div>
+                             </div>
+                       </div>
+                   </td>
+               </tr>
+
+            <tr>
+                <td>
+                    <div class="btn btn-dark btn-play"  id="option" onclick="changeOption()" role="button">Options</div>
+                </td>
+            </tr>
+                <tr>
+                    <td>
+                        <div id="selectMode">
+             <div>
+                <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="selectMod(1)" checked>
+            <label class="form-check-label" for="inlineRadio1">Minimax</label>
+                </div>
+                <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="selectMod(2)">
+            <label class="form-check-label" for="inlineRadio2">Monte-Carlo-Tree-Search</label>
+            </div>
+             </div>
+            </div>
+                    </td>
+                </tr>
+
+            </table>
+        </span>
+
+
+
+<script src="javaScr.js"></script>
+</body>
+</html>

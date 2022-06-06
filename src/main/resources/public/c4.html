@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connect Four</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body onload="loadInnerTable()">
+
+
+<div class ="container" style="float: right" onclick="changeFunction(this)" >
+   <div class="bar1">
+       <div class="bar2">
+           <div class="bar3"></div>
+       </div>
+   </div>
+
+
+</div>
+
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div><button onclick="sendRequestGET('undo')" class="btn btn-light"><i class="fa fa-undo" style="font-size: 48px;"></i></button></div>
+    <div><button onclick="sendRequestGET('reset')" class="btn btn-light">RESET</button></div>
+    <div><button onclick="sendRequestGET('bestM')" class="btn btn-light"><i class="fa fa-lightbulb-o" style="font-size: 48px;"></i></button></div>
+    <div><a  href="index.html" role="button" class="btn btn-light"><i class="fa fa-home" style="margin-top: 15px; font-size: 60px;"></i></a></div>
+    <div>  <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    </button>
+        <div class="dropdown-menu">
+            <div class="dropdown-item" onclick="sendTest(1)" >Test 1</div>
+            <div class="dropdown-item" onclick="sendTest(2)">Test 2</div>
+            <div class="dropdown-item" onclick="sendTest(3)">Test 3</div>
+            <div class="dropdown-item" onclick="sendTest(4)" >Test 4</div>
+            <div class="dropdown-item" onclick="sendTest(5)" >Test 5</div>
+            <div class="dropdown-item" onclick="sendTest(6)" >Test Custom</div>
+        </div>
+    </div>
+    <div><button onclick="sendRequestGET('code')" class="btn btn-light" id="testButton">TEST</button></div>
+</div>
+
+
+
+<table class="move" id="move">
+
+
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+
+
+    </tr>
+
+    <tr id="moveRow">
+        <td class="showcircle"><svg height="70" width="70" class="row-5">
+            <circle cx="35" cy="35" r="32" stroke-width="3" class="invis" onclick="sendMove(0)"  />
+        </svg></td>
+        <td class="showcircle"><svg height="70" width="70" class="row-5">
+            <circle cx="35" cy="35" r="32" stroke-width="3" class="invis"  onclick="sendMove(1)"  />
+        </svg></td>
+        <td class="showcircle"><svg height="70" width="70" class="row-5">
+            <circle cx="35" cy="35" r="32" stroke-width="3" class="invis" onclick="sendMove(2)"   />
+        </svg></td>
+        <td class="showcircle"><svg height="70" width="70" class="row-5">
+            <circle cx="35" cy="35" r="32" stroke-width="3" class="invis" onclick="sendMove(3)"  />
+        </svg></td>
+        <td class="showcircle"><svg height="70" width="70" class="row-5">
+            <circle cx="35" cy="35" r="32" stroke-width="3" class="invis" onclick="sendMove(4)"  />
+        </svg></td>
+        <td class="showcircle"><svg height="70" width="70" class="row-5">
+            <circle cx="35" cy="35" r="32" stroke-width="3" class="invis" onclick="sendMove(5)"  />
+        </svg></td>
+        <td class="showcircle"><svg height="70" width="70" class="row-5">
+            <circle cx="35" cy="35" r="32" stroke-width="3" class="invis" onclick="sendMove(6)"  />
+
+        </svg></td>
+    </tr>
+
+</table>
+
+
+<table class="table" id ="table"  >
+    <!--
+
+
+
+-->
+
+
+
+</table>
+<script src="javaScr.js"></script>
+</body>
+</html>
+
+
+<style>
+    body, html {
+        transition: 1s ease-in-out;
+        width: 100%;
+        height : 100%;
+        margin : 0 0;
+        padding: 0  0;
+    }
+
+    body{
+        background-image: url("abstract.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    #testButton{
+        visibility: hidden;
+    }
+
+
+    .table{
+        margin: auto;
+        height: 80px;
+        width: 80px;
+        background-color: transparent;
+    }
+
+    #table tr td {
+        height: 80px;
+        width: 80px;
+    }
+
+    #table tr {
+        height: 80px;
+        width: 80px;
+    }
+
+
+   table{
+       border-collapse: collapse;
+   }
+
+
+    .pointer{
+        cursor: pointer;
+    }
+
+    .invis {
+        fill: #DAD400;
+        opacity: 0;
+    }
+
+    .invis:hover {
+        opacity: 1.0;
+    }
+
+    circle.free{
+        fill : #fff;
+        opacity: 0.8;
+    }
+
+    circle.red{
+        fill : #D50000;
+    }
+
+    circle.yellow{
+        fill: #DAD400;
+    }
+
+
+    #move{
+        height: 70px;
+        width: 70px;
+        text-align: center;
+        margin: auto;
+    }
+
+    #move td{
+        height: 70px;
+        width: 70px;
+        font-size: 40px;
+        padding: 10px;
+        color: white;
+    }
+
+
+    #moveRow td{
+        border: solid white 1px;
+        border-collapse: collapse;
+    }
+
+    .btn-warning{
+        height: 120px;
+        width: 120px;
+        font-size: 25px;
+    }
+
+
+    .container {
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        float: right;
+        background-color: white;
+        margin: 10px 0;
+        transition: 0.4s;
+
+    }
+
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+
+    .sidenav button {
+        right: 10px;
+        margin-left: 100px;
+    }
+
+    .sidenav a {
+        right: 10px;
+        margin-left: 100px;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    .btn-light{
+        height: 100px;
+        width: 100px;
+        margin: 25px 0;
+        font-size: 25px;
+    }
+
+    .alert-light{
+        height: 100px;
+        width: 200px;
+        font-size: 40px;
+        opacity: 0.8;
+    }
+
+
+    .alert{
+        opacity: 0.8;
+        height: 80px;
+        width: 100px;
+
+    }
+
+
+
+
+
+</style>
+
